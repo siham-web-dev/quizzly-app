@@ -8,28 +8,32 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
+import { useTranslations } from "next-intl";
+
 const StudentsList = () => {
+  const t = useTranslations("QuizzesPage");
+
   return (
     <Dialog>
       <DialogTrigger>
-        <Button variant={"link"}>Students list</Button>
+        <Button variant={"link"}>{t("students")}</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Quiz students list</DialogTitle>
+          <DialogTitle>{t("students")}</DialogTitle>
           <DialogDescription>
             <div className="flex flex-col gap-9 mt-7">
               <div className="flex gap-3 justify-between">
                 <p>Username </p>
-                <p> Grade: 100 </p>
+                <p> {t("grade")}: 100 </p>
               </div>
               <div className="flex gap-3 justify-between">
                 <p>Username </p>
-                <p> Grade: 100 </p>
+                <p> {t("grade")}: 100 </p>
               </div>
               <div className="flex gap-3 justify-between">
                 <p>Username </p>
-                <p> Grade: 100 </p>
+                <p> {t("grade")}: 100 </p>
               </div>
             </div>
           </DialogDescription>

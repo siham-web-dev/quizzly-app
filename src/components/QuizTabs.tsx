@@ -4,8 +4,11 @@ import QuizCard from "./QuizCard";
 import EditQuiz from "./Modals/EditQuiz";
 import DeleteQuiz from "./Modals/DeleteQuiz";
 import StudentsList from "./Modals/StudentsList";
+import { useTranslations } from "next-intl";
 
 const QuizTabs = () => {
+  const t = useTranslations("QuizzesPage");
+
   return (
     <Tabs
       defaultValue="own"
@@ -16,13 +19,13 @@ const QuizTabs = () => {
           className="flex h-[45px] flex-1 cursor-default select-none items-center justify-center bg-white px-5 text-[15px] leading-none text-mauve11 outline-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  "
           value="own"
         >
-          Your own Quizzes
+          {t("own")}
         </TabsTrigger>
         <TabsTrigger
           className="flex h-[45px] flex-1 cursor-default select-none items-center justify-center bg-white px-5 text-[15px] leading-none text-mauve11 outline-none first:rounded-tl-md last:rounded-tr-md hover:text-violet11 data-[state=active]:text-violet11 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative "
           value="taken"
         >
-          Taken Quizzes
+          {t("taken")}
         </TabsTrigger>
       </TabsList>
       <TabsContent value="own" className="flex flex-col gap-3 p-10">
@@ -36,7 +39,7 @@ const QuizTabs = () => {
         {Array.from({ length: 10 }).map((_, index) => (
           <QuizCard key={index}>
             <div className="flex gap-3">
-              <h1 className="font-semibold text-violet-900">Grade :</h1>
+              <h1 className="font-semibold text-violet-900">{t("grade")}</h1>
               <p>10/10</p>
             </div>
           </QuizCard>

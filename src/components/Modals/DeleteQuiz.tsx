@@ -8,22 +8,24 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
+import { useTranslations } from "next-intl";
 
 const DeleteQuiz = () => {
+  const t = useTranslations("QuizzesPage");
   return (
     <Dialog>
       <DialogTrigger>
-        <Button variant={"destructive"}>Delete</Button>
+        <Button variant={"destructive"}>{t("delete")}</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete Quiz</DialogTitle>
+          <DialogTitle>{t("title_delete_quiz")}</DialogTitle>
           <DialogDescription>
             <div className="flex flex-col gap-9 mt-7">
-              <p> Are you absolutely sure to delete this quiz? </p>
+              <p>{t("message")}</p>
               <div className="flex gap-3">
-                <Button variant={"default"}>Submit</Button>
-                <Button variant={"destructive"}>Cancel</Button>
+                <Button variant={"default"}>{t("submit")}</Button>
+                <Button variant={"destructive"}>{t("cancel")}</Button>
               </div>
             </div>
           </DialogDescription>
