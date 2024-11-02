@@ -1,3 +1,4 @@
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { UserButton } from "@clerk/nextjs";
 
 const layout = ({ children }: { children: React.ReactNode }) => {
@@ -6,6 +7,9 @@ const layout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex justify-between gap-2 items-center pb-4 border-b border-slate-300">
         <h1 className="text-2xl font-bold text-pink-900">Quizzy</h1>
         <UserButton />
+      </div>
+      <div>
+        <LanguageSwitcher />
       </div>
       <div>{children}</div>
     </div>

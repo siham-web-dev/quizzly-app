@@ -7,10 +7,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Button } from "../ui/button";
-import { Label } from "../ui/label";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useTranslations } from "next-intl";
 
 const AddQuiz = () => {
@@ -26,8 +26,8 @@ const AddQuiz = () => {
           <DialogDescription>
             <div className="flex flex-col gap-4 my-5">
               <div className="flex flex-col gap-5">
-                <Label htmlFor="title">{t("title")}</Label>
-                <Input id="title" placeholder={t("title")} type="text" />
+                <Label htmlFor="title">{t("title_input")}</Label>
+                <Input id="title" placeholder={t("title_input")} type="text" />
               </div>
               <div className="flex flex-col gap-5">
                 <Label htmlFor="code">{t("code")}</Label>

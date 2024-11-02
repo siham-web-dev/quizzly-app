@@ -8,7 +8,8 @@ const LanguageSwitcher = () => {
 
   const onSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    router.replace(`/${value}`);
+    console.log(value);
+    router.push(`/${value}/quizzes`);
   };
   return (
     <label className="border-2 rounded">

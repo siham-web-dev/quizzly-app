@@ -29,6 +29,7 @@
     "submit": "Envoyer",
     "join": "Participer à un quizz",
     "title_input": "Titre du quizz",
-    "placeholder_answer": "Entrer le numéro de la bonne reponse"
+    "placeholder_answer": "Entrer le numéro de la bonne reponse",
+    "students": "la liste des etudiants"
   }
 }

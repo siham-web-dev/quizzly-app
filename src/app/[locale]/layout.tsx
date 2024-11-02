@@ -8,7 +8,6 @@ import { enUS, frFR } from "@clerk/localizations";
 import "./globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -58,9 +57,6 @@ export default async function LocaleLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <NextIntlClientProvider messages={messages}>
-            <div>
-              <LanguageSwitcher />
-            </div>
             {children}
           </NextIntlClientProvider>
         </body>
