@@ -1,7 +1,7 @@
-import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 const DefaultSchema = {
-  id: uuid("id").primaryKey().defaultRandom(),
+  id: text("id").notNull().primaryKey(),
   createdAt: timestamp("created_at").default(new Date()),
   updatedAt: timestamp("updated_at").default(new Date()),
   deletedAt: timestamp("deleted_at").default(new Date()),
