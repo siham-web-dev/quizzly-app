@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "db:generate": "npx drizzle-kit generate",
-    "db:migrate": "npx drizzle-kit migrate dev",
+    "db:migrate": "npx drizzle-kit migrate",
     "db:push": "npx drizzle-kit push",
-    "db:seed": "npx drizzle-kit seed"
+    "db:seed": "npx drizzle-kit seed",
+    "db:studio": "npx drizzle-kit studio"
   },
   "dependencies": {
     "@clerk/localizations": "^3.4.1",
@@ -33,6 +34,7 @@
     "pg": "^8.13.1",
     "react": "^18",
     "react-dom": "^18",
+    "svix": "^1.37.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
