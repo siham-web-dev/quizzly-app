@@ -6,12 +6,12 @@ import { eq } from "drizzle-orm";
 class UserService {
   async createUser(user: User) {
     try {
+      const id =
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
       await db.insert(UserTable).values({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        username: user.username,
-        id: user.id,
+        id,
+        ...user,
       });
 
       return { message: "SUCCESS" };

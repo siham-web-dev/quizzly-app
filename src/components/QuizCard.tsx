@@ -6,12 +6,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const QuizCard = ({ children }: { children: React.ReactNode }) => {
+const QuizCard = ({
+  children,
+  title,
+  description,
+}: {
+  children: React.ReactNode;
+  title: string;
+  description: string;
+}) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Quizz Title</CardTitle>
-        <CardDescription>Quizz Description</CardDescription>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardFooter>
         <div className="flex gap-3">{children}</div>

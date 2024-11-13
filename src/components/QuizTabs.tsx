@@ -5,9 +5,25 @@ import EditQuiz from "./Modals/EditQuiz";
 import DeleteQuiz from "./Modals/DeleteQuiz";
 import StudentsList from "./Modals/StudentsList";
 import { useTranslations } from "next-intl";
+import { getOwnedQuizzes } from "@/app/actions/quizz.actions";
+import { useEffect, useState } from "react";
+import { toast } from "@/hooks/use-toast";
+import { Quizz } from "@/types";
 
 const QuizTabs = () => {
+  const [ownedQuizzes, setOwnedQuizzes] = useState([]);
   const t = useTranslations("QuizzesPage");
+
+  const fetchOwnedQuizzes = async () => {
+    const { quizzes, error } = await getOwnedQuizzes();
+
+    if (error)
+      toast({ title: t("error"), description: error, variant: "destructive" });
+    else setOwnedQuizzes(quizzes);
+  };
+  useEffect(() => {
+    fetchOwnedQuizzes();
+  }, []);
 
   return (
     <Tabs
@@ -29,11 +45,19 @@ const QuizTabs = () => {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="own" className="flex flex-col gap-3 p-10">
-        <QuizCard>
-          <EditQuiz />
-          <DeleteQuiz />
-          <StudentsList />
-        </QuizCard>
+        {ownedQuizzes.map((quiz: Quizz) => (
+          <>
+            <QuizCard
+              key={quiz.id}
+              title={quiz.title}
+              description={quiz.description}
+            >
+              <EditQuiz />
+              <DeleteQuiz />
+              <StudentsList />
+            </QuizCard>
+          </>
+        ))}
       </TabsContent>
       <TabsContent value="taken" className="flex flex-col gap-3 px-10 pb-5">
         {Array.from({ length: 10 }).map((_, index) => (

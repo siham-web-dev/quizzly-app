@@ -30,6 +30,9 @@
     "join": "Participer à un quizz",
     "title_input": "Titre du quizz",
     "placeholder_answer": "Entrer le numéro de la bonne reponse",
-    "students": "la liste des etudiants"
+    "students": "la liste des etudiants",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "success": "Succès"
   }
 }

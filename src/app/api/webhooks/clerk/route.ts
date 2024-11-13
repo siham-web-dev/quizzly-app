@@ -54,7 +54,7 @@ export async function POST(req: Request) {
     const id: string = evt.data.id || "";
 
     if (eventType === "user.created" || eventType === "user.updated") {
-      const { email_addresses, first_name, last_name, username } = evt.data;
+      const { email_addresses, first_name, last_name } = evt.data;
 
       if (!id || !email_addresses) {
         return new Response("Error occurred -- missing data", {
@@ -67,7 +67,6 @@ export async function POST(req: Request) {
         email: email_addresses[0].email_address,
         ...(first_name ? { firstName: first_name } : {}),
         ...(last_name ? { lastName: last_name } : {}),
-        ...(username ? { usernaem: username } : {}),
       };
 
       if (eventType === "user.updated") {

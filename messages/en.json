@@ -30,6 +30,9 @@
     "join": "Join quiz",
     "title_input": "title",
     "placeholder_answer": "enter the choice number",
-    "students": "Students list"
+    "students": "Students list",
+    "loading": "Loading...",
+    "success": "Success !",
+    "error": "Error !"
   }
 }
