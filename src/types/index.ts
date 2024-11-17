@@ -53,6 +53,15 @@ export type Quizz = {
 } & z.infer<typeof QuizzFormValidation>;
 
 export type Question = {
-  quizId: string;
+  quizId?: string;
   id?: string;
+  index?: number;
 } & z.infer<typeof QuestionFormValidation>;
+
+export type StudenAnswersDto = {
+  questionId: string;
+  quizzId: string;
+  studentId: string;
+  index?: number;
+  nbPoints?: number;
+};

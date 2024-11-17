@@ -1,6 +1,6 @@
 {
-  "id": "36f402ee-8303-4a35-aa31-f1767bf9ef01",
-  "prevId": "f2c3e455-fd6c-4879-a821-12cde80f69bf",
+  "id": "60ec34c6-ff0b-473d-99e8-ef7009c0e442",
+  "prevId": "c6427437-7084-48ca-b9b4-7f9bced167f6",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -19,21 +19,28 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "deleted_at": {
           "name": "deleted_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
+        },
+        "index": {
+          "name": "index",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
         },
         "question": {
           "name": "question",
@@ -107,21 +114,21 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "deleted_at": {
           "name": "deleted_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "title": {
           "name": "title",
@@ -164,6 +171,53 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
+    "public.student_to_question": {
+      "name": "student_to_question",
+      "schema": "",
+      "columns": {
+        "student_id": {
+          "name": "student_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "question_id": {
+          "name": "question_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quizz_id": {
+          "name": "quizz_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nb_points": {
+          "name": "nb_points",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "student_to_question_student_id_question_id_quizz_id_pk": {
+          "name": "student_to_question_student_id_question_id_quizz_id_pk",
+          "columns": [
+            "student_id",
+            "question_id",
+            "quizz_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.users": {
       "name": "users",
       "schema": "",
@@ -179,21 +233,21 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "deleted_at": {
           "name": "deleted_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:51:25.594'"
+          "default": "'2024-11-17 17:44:18.887'"
         },
         "email": {
           "name": "email",

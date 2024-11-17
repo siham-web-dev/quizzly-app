@@ -22,3 +22,15 @@ export const addQuestion = async (questionDto: Question) => {
     return { error: "something went wrong" };
   }
 };
+
+export const getQuestion = async (quizzId: string, index: number) => {
+  try {
+    const question = await questionService.getQuestion(quizzId, index);
+
+    return { question };
+  } catch (error) {
+    console.log(error);
+
+    return { error: "something went wrong" };
+  }
+};

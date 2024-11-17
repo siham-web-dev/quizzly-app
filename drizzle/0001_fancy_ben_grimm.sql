@@ -1,0 +1,10 @@
+ALTER TABLE "questions" ALTER COLUMN "created_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "questions" ALTER COLUMN "updated_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "questions" ALTER COLUMN "deleted_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "quizzes" ALTER COLUMN "created_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "quizzes" ALTER COLUMN "updated_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "quizzes" ALTER COLUMN "deleted_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "users" ALTER COLUMN "created_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "users" ALTER COLUMN "updated_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "users" ALTER COLUMN "deleted_at" SET DEFAULT '2024-11-17 17:44:18.887';--> statement-breakpoint
+ALTER TABLE "questions" ADD COLUMN "index" integer DEFAULT 1 NOT NULL;
