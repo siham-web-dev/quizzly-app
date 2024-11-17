@@ -1,3 +1,5 @@
+"use client";
+
 import { joinQuizz } from "@/app/actions/studentQuizzes.action";
 import AddQuiz from "@/components/Modals/AddQuiz";
 import QuizTabs from "@/components/QuizTabs";

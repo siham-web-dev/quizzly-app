@@ -62,10 +62,12 @@ class StudenQuizzesService {
     }
 
     await db.insert(StudenAnswers).values({
-      studentId: nextQuestionDto.studentId,
+      studentId: nextQuestionDto.studentId as string,
       questionId: nextQuestion.id,
       quizzId: nextQuestionDto.quizzId,
     });
+
+    return { question: nextQuestion };
   }
 
   async setPoints(nextQuestionDto: StudenAnswersDto) {

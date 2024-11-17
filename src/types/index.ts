@@ -61,7 +61,13 @@ export type Question = {
 export type StudenAnswersDto = {
   questionId: string;
   quizzId: string;
-  studentId: string;
+  studentId?: string;
   index?: number;
   nbPoints?: number;
+};
+
+export type StudenAnswers = {
+  questionId: string;
+  quizzId: string;
+  nbPoints: number;
 };
