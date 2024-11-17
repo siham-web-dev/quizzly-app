@@ -1,3 +1,4 @@
+import ContextProvider from "@/components/ContextProvider";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { UserButton } from "@clerk/nextjs";
 
@@ -8,10 +9,12 @@ const layout = ({ children }: { children: React.ReactNode }) => {
         <h1 className="text-2xl font-bold text-pink-900">Quizzy</h1>
         <UserButton />
       </div>
-      <div>
-        <LanguageSwitcher />
-      </div>
-      <div>{children}</div>
+      <ContextProvider>
+        <div>
+          <LanguageSwitcher />
+        </div>
+        <div>{children}</div>
+      </ContextProvider>
     </div>
   );
 };

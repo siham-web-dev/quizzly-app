@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 const DefaultSchema = {
   id: text("id").notNull().primaryKey(),
@@ -23,13 +23,33 @@ export const Quizz = pgTable("quizzes", {
   userId: text("user_id").notNull(),
 });
 
-export const QuizzRelation = relations(Quizz, ({ one }) => ({
+export const Question = pgTable("questions", {
+  ...DefaultSchema,
+  description: text("question").notNull(),
+  choice1: text("choice1").notNull(),
+  choice2: text("choice2").notNull(),
+  choice3: text("choice3").notNull(),
+  answer: integer("answer").notNull(),
+  nbPoints: integer("nb_points").notNull(),
+  timeLimit: text("time_limit").notNull(),
+  quizId: text("quiz_id").notNull(),
+});
+
+export const QuizzRelation = relations(Quizz, ({ one, many }) => ({
   user: one(User, {
     fields: [Quizz.userId],
     references: [User.id],
   }),
+  questions: many(Question),
 }));
 
 export const userRelation = relations(User, ({ many }) => ({
   quizzes: many(Quizz),
+}));
+
+export const questionRelation = relations(Question, ({ one }) => ({
+  quizz: one(Quizz, {
+    fields: [Question.quizId],
+    references: [Quizz.id],
+  }),
 }));

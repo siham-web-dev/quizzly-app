@@ -5,25 +5,38 @@ import EditQuiz from "./Modals/EditQuiz";
 import DeleteQuiz from "./Modals/DeleteQuiz";
 import StudentsList from "./Modals/StudentsList";
 import { useTranslations } from "next-intl";
-import { getOwnedQuizzes } from "@/app/actions/quizz.actions";
-import { useEffect, useState } from "react";
+import { deleteQuizz } from "@/app/actions/quizz.actions";
+import { useContext, useEffect } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Quizz } from "@/types";
+import { Context } from "./ContextProvider";
 
 const QuizTabs = () => {
-  const [ownedQuizzes, setOwnedQuizzes] = useState([]);
   const t = useTranslations("QuizzesPage");
+  const { setQuizzes, isLoading, ownedQuizzes } = useContext(Context);
 
-  const fetchOwnedQuizzes = async () => {
-    const { quizzes, error } = await getOwnedQuizzes();
-
-    if (error)
-      toast({ title: t("error"), description: error, variant: "destructive" });
-    else setOwnedQuizzes(quizzes);
-  };
   useEffect(() => {
-    fetchOwnedQuizzes();
+    setQuizzes();
   }, []);
+
+  const onDelete = async (id: string) => {
+    const { error } = await deleteQuizz(id);
+    if (error) {
+      toast({
+        title: t("error"),
+        description: error,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        variant: "default",
+        color: "green",
+        title: t("success"),
+        description: "you have successfully deleted a quizz !!",
+      });
+      setQuizzes();
+    }
+  };
 
   return (
     <Tabs
@@ -45,29 +58,30 @@ const QuizTabs = () => {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="own" className="flex flex-col gap-3 p-10">
-        {ownedQuizzes.map((quiz: Quizz) => (
+        {isLoading && <p>Loading...</p>}
+        {ownedQuizzes?.map((quiz: Quizz) => (
           <>
             <QuizCard
               key={quiz.id}
               title={quiz.title}
               description={quiz.description}
             >
-              <EditQuiz />
-              <DeleteQuiz />
+              <EditQuiz quizId={quiz.id as string} />
+              <DeleteQuiz id={quiz.id as string} onDelete={onDelete} />
               <StudentsList />
             </QuizCard>
           </>
         ))}
       </TabsContent>
       <TabsContent value="taken" className="flex flex-col gap-3 px-10 pb-5">
-        {Array.from({ length: 10 }).map((_, index) => (
-          <QuizCard key={index}>
+        {/* {Array.from({ length: 10 }).map((_, index) => (
+          <QuizCard  key={index}>
             <div className="flex gap-3">
               <h1 className="font-semibold text-violet-900">{t("grade")}</h1>
               <p>10/10</p>
             </div>
           </QuizCard>
-        ))}
+        ))} */}
       </TabsContent>
     </Tabs>
   );

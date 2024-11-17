@@ -17,6 +17,8 @@ import { Quizz, QuizzFormValidation } from "@/types";
 import { addQuizz } from "@/app/actions/quizz.actions";
 import { toast } from "@/hooks/use-toast";
 import { Form, FormControl, FormItem, FormLabel } from "../ui/form";
+import { useContext } from "react";
+import { Context } from "../ContextProvider";
 
 const AddQuiz = () => {
   const t = useTranslations("QuizzesPage");
@@ -24,6 +26,7 @@ const AddQuiz = () => {
     resolver: zodResolver(QuizzFormValidation),
     defaultValues: { code: "", title: "", description: "" },
   });
+  const { setQuizzes } = useContext(Context);
 
   const {
     register,
@@ -48,6 +51,7 @@ const AddQuiz = () => {
         title: t("success"),
         description: result.message,
       });
+      setQuizzes();
     }
   };
 

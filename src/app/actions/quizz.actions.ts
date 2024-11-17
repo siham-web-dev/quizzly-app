@@ -37,3 +37,15 @@ export const getOwnedQuizzes = async () => {
     return { error: "something went wrong" };
   }
 };
+
+export const deleteQuizz = async (quizzId: string) => {
+  try {
+    await quizService.deleteQuizz(quizzId);
+
+    return { message: "you have successfully deleted a quizz !!" };
+  } catch (error) {
+    console.log(error);
+
+    return { error: "something went wrong" };
+  }
+};

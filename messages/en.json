@@ -16,7 +16,7 @@
     "choices": "choices",
     "choice": "choice",
     "answer": "answer",
-    "time_limit": "Time limit",
+    "time_limit": "Time limit in seconds",
     "nb_points": "Number of points",
     "delete": "Delete",
     "title_delete_quiz": "Delete Quiz",

@@ -1,6 +1,6 @@
 {
-  "id": "f2c3e455-fd6c-4879-a821-12cde80f69bf",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "36f402ee-8303-4a35-aa31-f1767bf9ef01",
+  "prevId": "f2c3e455-fd6c-4879-a821-12cde80f69bf",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -19,21 +19,21 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "deleted_at": {
           "name": "deleted_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "question": {
           "name": "question",
@@ -73,10 +73,9 @@
         },
         "time_limit": {
           "name": "time_limit",
-          "type": "integer",
+          "type": "text",
           "primaryKey": false,
-          "notNull": true,
-          "default": 0
+          "notNull": true
         },
         "quiz_id": {
           "name": "quiz_id",
@@ -108,21 +107,21 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "deleted_at": {
           "name": "deleted_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "title": {
           "name": "title",
@@ -180,21 +179,21 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "deleted_at": {
           "name": "deleted_at",
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
-          "default": "'2024-11-17 11:50:25.371'"
+          "default": "'2024-11-17 11:51:25.594'"
         },
         "email": {
           "name": "email",

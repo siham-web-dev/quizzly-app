@@ -35,6 +35,10 @@ class QuizzService {
 
     return quizz;
   }
+
+  async deleteQuizz(id: string) {
+    await db.delete(QuizzTable).where(eq(QuizzTable.id, id));
+  }
 }
 
 export default new QuizzService();
